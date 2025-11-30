@@ -6,11 +6,6 @@
  * @param {object} dtoIn contains count of employees, age limit of employees {min, max}
  * @returns {Array} of employees
  */
-export function main(dtoIn) {
-    //TODO code
-    //let dtoOut = exMain(dtoIn);
-    return dtoOut;
-}
 
 // Výběr
 
