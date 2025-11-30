@@ -77,7 +77,6 @@ function generateEmployees(minAge, maxAge, totalCount) {
 
     for (let i = 0; i < totalCount; i++) {
         const gender = randomFromArray(["male", "female"]);
-
         const name = gender === "male" ? randomFromArray(maleNames) : randomFromArray(femaleNames);
         const surname = gender === "male" ? randomFromArray(maleSurnames) : randomFromArray(femaleSurnames);
 
@@ -85,12 +84,11 @@ function generateEmployees(minAge, maxAge, totalCount) {
         const age = calculateAge(birthdate);
         const workload = randomFromArray(workloads);
 
-
         if (age < minAge || age > maxAge) {
             throw new Error("Vygenerovaný věk je mimo interval!");
         }
 
-        output.push({ gender, birthdate, age, name, surname, workload });
+        output.push({ gender, name, surname, birthdate, age, workload });
     }
 
     return output;
