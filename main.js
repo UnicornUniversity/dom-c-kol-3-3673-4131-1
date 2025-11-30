@@ -20,6 +20,8 @@ export function main(dtoIn) {
     return generateEmployees(age.min, age.max, count);
 }
 
+module.exports = { main };
+
 // Výběr náhodný
 
 const maleNames = [
@@ -138,4 +140,3 @@ function generateEmployees(minAge, maxAge, totalCount) {
 // Příklad
 const result = main({ count: 20, age: { min: 18, max: 65 } });
 console.log(result);
-
