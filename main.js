@@ -43,14 +43,31 @@ const femaleSurnames = [
 
 // Funkce
 
+/**
+ * Vrátí náhodné celé číslo v intervalu <min, max>.
+ * @param {number} min - Dolní hranice intervalu.
+ * @param {number} max - Horní hranice intervalu.
+ * @returns {number} Náhodné celé číslo.
+ */
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+/**
+ * Vrátí náhodný prvek z pole.
+ * @param {Array} arr - Pole hodnot.
+ * @returns {*} Náhodný prvek z pole.
+ */
 function randomFromArray(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
+/**
+ * Vygeneruje náhodné datum narození tak, aby věk spadal do intervalu <minAge, maxAge>.
+ * @param {number} minAge - Minimální věk.
+ * @param {number} maxAge - Maximální věk.
+ * @returns {string} Datum narození ve formátu ISO.
+ */
 function randomBirthdate(minAge, maxAge) {
     const now = new Date();
     const YEAR_MS = 1000 * 60 * 60 * 24 * 365.25;
@@ -62,6 +79,11 @@ function randomBirthdate(minAge, maxAge) {
     return new Date(randomTime).toISOString();
 }
 
+/**
+ * Spočítá věk na základě data narození.
+ * @param {string} birthdate - Datum narození ve formátu ISO.
+ * @returns {number} Věk v letech.
+ */
 function calculateAge(birthdate) {
     const now = new Date();
     const YEAR_MS = 1000 * 60 * 60 * 24 * 365.25;
@@ -69,8 +91,13 @@ function calculateAge(birthdate) {
     return diffMs / YEAR_MS;
 }
 
-// Generátor
-
+/**
+ * Vygeneruje pole zaměstnanců s náhodnými daty.
+ * @param {number} minAge - Minimální věk zaměstnance.
+ * @param {number} maxAge - Maximální věk zaměstnance.
+ * @param {number} totalCount - Počet zaměstnanců.
+ * @returns {Array<object>} Pole zaměstnanců.
+ */
 function generateEmployees(minAge, maxAge, totalCount) {
     const output = [];
     const workloads = [10, 20, 30, 40];
@@ -82,7 +109,9 @@ function generateEmployees(minAge, maxAge, totalCount) {
 
         const birthdate = randomBirthdate(minAge, maxAge);
         const age = calculateAge(birthdate);
-        const workload = randomFromArray(workloads);
+
+        // ✅ využití randomInt – vybere náhodný index z pole workloads
+        const workload = workloads[randomInt(0, workloads.length - 1)];
 
         if (age < minAge || age > maxAge) {
             throw new Error("Vygenerovaný věk je mimo interval!");
@@ -96,25 +125,19 @@ function generateEmployees(minAge, maxAge, totalCount) {
 
 /**
  * Vstupní bod aplikace.
- * Generuje pole zaměstnanců s náhodnými daty tak,
- * aby věk byl přísně v intervalu <min, max>.
- *
  * @param {object} dtoIn - vstupní data
  * @param {number} dtoIn.count - počet zaměstnanců
  * @param {object} dtoIn.age - věkové limity
- * @param {number} dtoIn.age.min - minimální věk (včetně)
- * @param {number} dtoIn.age.max - maximální věk (včetně)
- * @returns {Array} pole zaměstnanců
+ * @param {number} dtoIn.age.min - minimální věk
+ * @param {number} dtoIn.age.max - maximální věk
+ * @returns {Array<object>} pole zaměstnanců
  */
-
 export function main(dtoIn) {
     const { count, age } = dtoIn;
     return generateEmployees(age.min, age.max, count);
 }
 
 // Příklad
-
 const result = main({ count: 20, age: { min: 18, max: 65 } });
 console.log(result);
-
 
