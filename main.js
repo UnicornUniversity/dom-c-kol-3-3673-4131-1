@@ -1,11 +1,24 @@
-//TODO add imports if needed
-//TODO doc
 /**
- * The main function which calls the application.
- * Please, add specific description here for the application purpose.
- * @param {object} dtoIn contains count of employees, age limit of employees {min, max}
- * @returns {Array} of employees
+ * Spustí generátor zaměstnanců a vrátí pole s náhodně vygenerovanými daty.
+ * Aplikace slouží k vytvoření seznamu zaměstnanců podle zadaného počtu a věkového intervalu.
+ * Každý zaměstnanec obsahuje jméno, příjmení, pohlaví, datum narození, věk a pracovní úvazek.
+ * @param {object} dtoIn - Vstupní data pro generátor.
+ * @param {number} dtoIn.count - Počet zaměstnanců, kteří se mají vygenerovat.
+ * @param {object} dtoIn.age - Věkové limity zaměstnanců.
+ * @param {number} dtoIn.age.min - Minimální věk zaměstnance.
+ * @param {number} dtoIn.age.max - Maximální věk zaměstnance.
+ * @returns {Array<object>} Pole zaměstnanců s vlastnostmi:
+ *   - {string} gender - Pohlaví ("male" nebo "female").
+ *   - {string} name - Křestní jméno.
+ *   - {string} surname - Příjmení.
+ *   - {string} birthdate - Datum narození ve formátu ISO.
+ *   - {number} age - Věk v letech.
+ *   - {number} workload - Úvazek (10, 20, 30 nebo 40).
  */
+export function main(dtoIn) {
+    const { count, age } = dtoIn;
+    return generateEmployees(age.min, age.max, count);
+}
 
 // Výběr náhodný
 
@@ -120,20 +133,6 @@ function generateEmployees(minAge, maxAge, totalCount) {
     }
 
     return output;
-}
-
-/**
- * Vstupní bod aplikace.
- * @param {object} dtoIn - vstupní data
- * @param {number} dtoIn.count - počet zaměstnanců
- * @param {object} dtoIn.age - věkové limity
- * @param {number} dtoIn.age.min - minimální věk
- * @param {number} dtoIn.age.max - maximální věk
- * @returns {Array<object>} pole zaměstnanců
- */
-export function main(dtoIn) {
-    const { count, age } = dtoIn;
-    return generateEmployees(age.min, age.max, count);
 }
 
 // Příklad
