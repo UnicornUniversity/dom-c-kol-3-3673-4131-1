@@ -15,7 +15,7 @@
  *   - {number} age - Věk v letech.
  *   - {number} workload - Úvazek (10, 20, 30 nebo 40).
  */
-export function main(dtoIn) {
+function main(dtoIn) {
     const { count, age } = dtoIn;
     return generateEmployees(age.min, age.max, count);
 }
