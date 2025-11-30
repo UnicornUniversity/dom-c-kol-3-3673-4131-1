@@ -7,7 +7,7 @@
  * @returns {Array} of employees
  */
 
-// Výběr
+// Výběr náhodný
 
 const maleNames = [
     "Jan","Petr","Tomáš","Lukáš","Jakub","Martin","Michal","David","Josef","Jiří",
