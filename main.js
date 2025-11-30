@@ -94,7 +94,6 @@ function generateEmployees(minAge, maxAge, totalCount) {
     return output;
 }
 
-// Main
 /**
  * Vstupní bod aplikace.
  * Generuje pole zaměstnanců s náhodnými daty tak,
