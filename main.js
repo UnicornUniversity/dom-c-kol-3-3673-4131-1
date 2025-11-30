@@ -107,6 +107,7 @@ function generateEmployees(minAge, maxAge, totalCount) {
  * @param {number} dtoIn.age.max - maximální věk (včetně)
  * @returns {Array} pole zaměstnanců
  */
+
 export function main(dtoIn) {
     const { count, age } = dtoIn;
     return generateEmployees(age.min, age.max, count);
@@ -116,3 +117,4 @@ export function main(dtoIn) {
 
 const result = main({ count: 20, age: { min: 18, max: 65 } });
 console.log(result);
+
