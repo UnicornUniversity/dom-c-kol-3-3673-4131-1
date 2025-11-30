@@ -24,7 +24,6 @@
     "@types/node": "^22.8.7",
     "eslint-plugin-jsdoc": "^50.5.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "node": "^22.11.0",
     "prettier": "^3.3.3"
   },
   "jest": {
