@@ -13,7 +13,7 @@ const maleNames = [
     "Jan","Petr","Tomáš","Lukáš","Jakub","Martin","Michal","David","Josef","Jiří",
     "Karel","Marek","Ondřej","Václav","Filip","Daniel","Roman","Jaroslav","Adam","Matěj",
     "Štěpán","Vojtěch","Radek","Antonín","Aleš","Zdeněk","Patrik","Ladislav","Dominik","Richard",
-    "Robert","Stanislav","Bohumil","Rudolf","Emil","Vladimír","Oldřich","Libor","Ivo",
+    "Robert","Stanislav","Bohumil","Rudolf","Emil","Vladimír","Oliver","Libor","Ivo",
     "Pavel","František","Hynek","Albert","Eduard","Erik","Igor","Sebastian","Boris","Samuel"
 ];
 
