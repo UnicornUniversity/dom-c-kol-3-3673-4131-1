@@ -110,7 +110,6 @@ function generateEmployees(minAge, maxAge, totalCount) {
         const birthdate = randomBirthdate(minAge, maxAge);
         const age = calculateAge(birthdate);
 
-        // ✅ využití randomInt – vybere náhodný index z pole workloads
         const workload = workloads[randomInt(0, workloads.length - 1)];
 
         if (age < minAge || age > maxAge) {
